@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  MySnackBar(message, context){
+  mySnackBar(message, context){
     return ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(message)
         )
@@ -30,6 +30,15 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+    ButtonStyle buttonStyle = ElevatedButton.styleFrom(
+      padding: EdgeInsets.all(25),
+      backgroundColor: Colors.green,
+      foregroundColor: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(40))
+      )
+    );
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(
@@ -42,10 +51,10 @@ class HomeScreen extends StatelessWidget {
         elevation: 6,
         backgroundColor: Colors.green,
         actions: [
-          IconButton(onPressed: (){MySnackBar('comment', context);}, icon: Icon(Icons.comment)),
-          IconButton(onPressed: (){MySnackBar('search', context);}, icon: Icon(Icons.search)),
-          IconButton(onPressed: (){MySnackBar('settings', context);}, icon: Icon(Icons.settings)),
-          IconButton(onPressed: (){MySnackBar('email', context);}, icon: Icon(Icons.email))
+          IconButton(onPressed: (){mySnackBar('comment', context);}, icon: Icon(Icons.comment)),
+          IconButton(onPressed: (){mySnackBar('search', context);}, icon: Icon(Icons.search)),
+          IconButton(onPressed: (){mySnackBar('settings', context);}, icon: Icon(Icons.settings)),
+          IconButton(onPressed: (){mySnackBar('email', context);}, icon: Icon(Icons.email))
         ],
 
       ),
@@ -53,7 +62,7 @@ class HomeScreen extends StatelessWidget {
         elevation: 18,
         child: Icon(Icons.add),
         backgroundColor: Colors.green,
-        onPressed: (){MySnackBar('FloatingAction', context);},
+        onPressed: (){mySnackBar('FloatingAction', context);},
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 1,
@@ -64,11 +73,11 @@ class HomeScreen extends StatelessWidget {
         ],
         onTap: (int index){
           if(index == 0){
-            MySnackBar('message', context);
+            mySnackBar('message', context);
           }if(index == 1){
-            MySnackBar('home', context);
+            mySnackBar('home', context);
           }if(index == 2){
-            MySnackBar('profile', context);
+            mySnackBar('profile', context);
           }
         },
       ),
@@ -83,28 +92,28 @@ class HomeScreen extends StatelessWidget {
                   accountEmail: Text('arafat.roman@outlook.com', style: TextStyle(color: Colors.black)),
                   currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
                   onDetailsPressed: (){
-                    MySnackBar('My Profile', context);
+                    mySnackBar('My Profile', context);
                   },
                 )),
             ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
               onTap: (){
-                MySnackBar('home', context);
+                mySnackBar('home', context);
               },
             ),
             ListTile(
               leading: Icon(Icons.email),
               title: Text('Email'),
               onTap: (){
-                MySnackBar('Email', context);
+                mySnackBar('Email', context);
               },
             ),
             ListTile(
               leading: Icon(Icons.phone),
               title: Text('Phone'),
               onTap: (){
-                MySnackBar('Phone', context);
+                mySnackBar('Phone', context);
               },
             ),
           ],
@@ -121,28 +130,28 @@ class HomeScreen extends StatelessWidget {
                   accountEmail: Text('arafat.roman@outlook.com', style: TextStyle(color: Colors.black)),
                   currentAccountPicture: Image.network("https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
                   onDetailsPressed: (){
-                    MySnackBar('My Profile', context);
+                    mySnackBar('My Profile', context);
                   },
                 )),
             ListTile(
               leading: Icon(Icons.home),
               title: Text('Home'),
               onTap: (){
-                MySnackBar('home', context);
+                mySnackBar('home', context);
               },
             ),
             ListTile(
               leading: Icon(Icons.email),
               title: Text('Email'),
               onTap: (){
-                MySnackBar('Email', context);
+                mySnackBar('Email', context);
               },
             ),
             ListTile(
               leading: Icon(Icons.phone),
               title: Text('Phone'),
               onTap: (){
-                MySnackBar('Phone', context);
+                mySnackBar('Phone', context);
               },
             ),
           ],
@@ -156,9 +165,9 @@ class HomeScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: (){}, child: Text('TextButton')),
-              ElevatedButton(onPressed: (){},child: Text('ElevatedButton')),
-              OutlinedButton(onPressed: (){}, child: Text('OutlinedButton')),
+              TextButton(onPressed: (){mySnackBar('This is TextButton', context);}, child: Text('TextButton')),
+              ElevatedButton(onPressed: (){mySnackBar('This is ElevatedButton', context);},child: Text('ElevatedButton'),style: buttonStyle,),
+              OutlinedButton(onPressed: (){mySnackBar('This is OutlinedButton', context);}, child: Text('OutlinedButton')),
 
             ],
           ),
