@@ -55,10 +55,11 @@ class HomeScreen extends StatelessWidget {
     
     ButtonStyle buttonStyle = ElevatedButton.styleFrom(
       padding: EdgeInsets.all(25),
+      minimumSize: Size(double.infinity, 60),
       backgroundColor: Colors.green,
       foregroundColor: Colors.white,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(40))
+        borderRadius: BorderRadius.all(Radius.circular(6))
       )
     );
     return Scaffold(
@@ -181,16 +182,28 @@ class HomeScreen extends StatelessWidget {
       ),
       body: (
       Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
 
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              ElevatedButton(onPressed: (){myAlertDialog(context);},child: Text('ElevatedButton'),style: buttonStyle,),
-
-            ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'First Name'),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'Last Name'),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+            TextField(decoration: InputDecoration(border: OutlineInputBorder(),labelText: 'Email Address'),),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child:
+            ElevatedButton(onPressed: (){},child: Text('Submit'),style: buttonStyle,),
           ),
 
         ],
