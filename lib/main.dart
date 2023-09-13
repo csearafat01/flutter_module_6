@@ -28,6 +28,28 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  myAlertDialog(context){
+    return showDialog(
+        context: context,
+        builder: (BuildContext context){
+            return Expanded(
+                child: AlertDialog(
+                  title: Text('Alert!'),
+                  content: Text('Do you want to delete?'),
+                  actions: [
+                    TextButton(onPressed: (){
+                      mySnackBar('Successfully Deleted!', context);Navigator.of(context).pop();
+
+                    }, child: Text('yes')),
+                    TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('No')),
+
+                  ],
+                 )
+              );
+           }
+       );
+  }
+
   @override
   Widget build(BuildContext context) {
     
@@ -165,9 +187,8 @@ class HomeScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextButton(onPressed: (){mySnackBar('This is TextButton', context);}, child: Text('TextButton')),
-              ElevatedButton(onPressed: (){mySnackBar('This is ElevatedButton', context);},child: Text('ElevatedButton'),style: buttonStyle,),
-              OutlinedButton(onPressed: (){mySnackBar('This is OutlinedButton', context);}, child: Text('OutlinedButton')),
+
+              ElevatedButton(onPressed: (){myAlertDialog(context);},child: Text('ElevatedButton'),style: buttonStyle,),
 
             ],
           ),
