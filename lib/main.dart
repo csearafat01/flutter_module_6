@@ -188,13 +188,18 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: ListView.builder(
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 0,
+          childAspectRatio: 1.2
+        ),
           itemCount: imageUrls.length,
           itemBuilder: (context, index){
         return GestureDetector(
         onDoubleTap: (){mySnackBar(imageUrls[index]['title'], context);},
     child: Container(
-    margin: EdgeInsets.all(16),
+    margin: EdgeInsets.all(5),
     width: double.infinity,
     height: 200,
     child: Image.network(imageUrls[index]['img']!,fit: BoxFit.fill,),
