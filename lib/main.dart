@@ -1,12 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_module_6/AlarmFragment.dart';
-import 'package:flutter_module_6/ContactsFragment.dart';
-import 'package:flutter_module_6/HomeFragment.dart';
-import 'package:flutter_module_6/MailFragment.dart';
-import 'package:flutter_module_6/PersonFragment.dart';
-import 'package:flutter_module_6/ScheduleFragment.dart';
-import 'package:flutter_module_6/SearchFragment.dart';
-import 'package:flutter_module_6/SettingsFragment.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,75 +18,75 @@ class MyApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatelessWidget {
-   const HomeScreen({Key? key}) : super(key: key);
-
-  mySnackBar(message, context){
-    return ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(message)
-        )
-    );
-
-  }
-
-  myAlertDialog(context){
-    return showDialog(
-        context: context,
-        builder: (BuildContext context){
-            return Expanded(
-                child: AlertDialog(
-                  title: Text('Alert!'),
-                  content: Text('Do you want to delete?'),
-                  actions: [
-                    TextButton(onPressed: (){
-                      mySnackBar('Successfully Deleted!', context);Navigator.of(context).pop();
-
-                    }, child: Text('yes')),
-                    TextButton(onPressed: (){Navigator.of(context).pop();}, child: Text('No')),
-
-                  ],
-                 )
-              );
-           }
-       );
-  }
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 8,
-      child: Scaffold(
-        backgroundColor: Colors.grey.shade200,
-        appBar: AppBar(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity1()));
+          }, child: const Text('Go Activity1')),
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity2()));
+          }, child: const Text('Go Activity2')),
+        ],
+      ),
+    );
+  }
+}
 
-          title: const Text('Innovation App'),
-          bottom: const TabBar(
-            isScrollable : true,
-            tabs: [
-              Tab(icon: Icon(Icons.home),text: 'home',),
-              Tab(icon: Icon(Icons.search),text: 'search',),
-              Tab(icon: Icon(Icons.mail),text: 'mail',),
-              Tab(icon: Icon(Icons.schedule),text: 'schedule',),
-              Tab(icon: Icon(Icons.person),text: 'person',),
-              Tab(icon: Icon(Icons.alarm),text: 'alarm',),
-              Tab(icon: Icon(Icons.contacts),text: 'contacts',),
-              Tab(icon: Icon(Icons.settings),text: 'settings',),
-            ],
-          ),
-        ),
+class Activity1 extends StatelessWidget {
+  const Activity1({super.key});
 
-        body: const TabBarView(
-          children: [
-            HomeFragment(),
-            SearchFragment(),
-            MailFragment(),
-            ScheduleFragment(),
-            PersonFragment(),
-            AlarmFragment(),
-            ContactsFragment(),
-            SettingsFragment(),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Activity1'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity2()));
+          }, child: const Text('Go Activity2')),
+          ElevatedButton(onPressed: (){
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+          }, child: const Text('Back To Home'))
+        ],
+      ),
+    );
+  }
+}
 
-          ],
-        ),
+class Activity2 extends StatelessWidget {
+  const Activity2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Activity2'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          ElevatedButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity1()));
+          }, child: const Text('Go Activity1')),
+          ElevatedButton(onPressed: (){
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
+          }, child: const Text('Back To Home'))
+        ],
       ),
     );
   }
