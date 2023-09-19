@@ -57,7 +57,7 @@ class Activity1 extends StatelessWidget {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity2()));
           }, child: const Text('Go Activity2')),
           ElevatedButton(onPressed: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
           }, child: const Text('Back To Home'))
         ],
       ),
