@@ -27,12 +27,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: const Center(
-        child: LinearProgressIndicator(
-          color: Colors.redAccent,
-          minHeight: 50,
-          backgroundColor: Colors.white,
-
+      body: Center(
+        child: const Icon(Icons.camera_enhance,size: 200,color: Colors.blueAccent,
         ),
       ),
     );
