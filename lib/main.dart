@@ -26,16 +26,19 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Home To Activity1')));
-          }, child: const Text('Go Activity1')),
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Home To Activity2')));
-          }, child: const Text('Go Activity2')),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Home To Activity1')));
+            }, child: const Text('Go Activity1'),),
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Home To Activity2')));
+            }, child: const Text('Go Activity2')),
+          ],
+        ),
       ),
     );
   }
@@ -53,16 +56,19 @@ class Activity1 extends StatelessWidget {
       appBar: AppBar(
         title:  Text(mgs),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Activity1 To Activity2')));
-          }, child: const Text('Go Activity2')),
-          ElevatedButton(onPressed: (){
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
-          }, child: const Text('Back To Home'))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Activity1 To Activity2')));
+            }, child: const Text('Go Activity2')),
+            ElevatedButton(onPressed: (){
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
+            }, child: const Text('Back To Home'))
+          ],
+        ),
       ),
     );
   }
@@ -80,19 +86,21 @@ class Activity2 extends StatelessWidget {
       appBar: AppBar(
         title:  Text(mgs),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Activity2 To Activity1')));
-          }, child: const Text('Go Activity1')),
-          ElevatedButton(onPressed: (){
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
-            );
-          }, child: const Text('Back To Home'))
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Activity2 To Activity1')));
+            }, child: const Text('Go Activity1')),
+            ElevatedButton(onPressed: (){
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
+            }, child: const Text('Back To Home'))
+          ],
+        ),
       ),
     );
   }
