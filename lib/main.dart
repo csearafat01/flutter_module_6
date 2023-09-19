@@ -27,19 +27,10 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Center(
-        child: Card(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
-          shadowColor: Colors.cyanAccent,
-          color: Colors.cyan,
-          elevation: 30,
-          child: const SizedBox(
-            height: 200,
-            width: 200,
-            child: Center(
-              child: Text('This is Card'),
-            ),
-          ),
+      body: const Center(
+        child: CircularProgressIndicator(
+          color: Colors.redAccent,
+          strokeWidth: 10,
         ),
       ),
     );
