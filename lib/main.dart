@@ -28,9 +28,11 @@ class HomeScreen extends StatelessWidget {
         title: const Text('Home'),
       ),
       body: const Center(
-        child: CircularProgressIndicator(
+        child: LinearProgressIndicator(
           color: Colors.redAccent,
-          strokeWidth: 10,
+          minHeight: 50,
+          backgroundColor: Colors.white,
+
         ),
       ),
     );
