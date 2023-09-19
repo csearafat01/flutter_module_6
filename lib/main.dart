@@ -27,8 +27,8 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Center(
-        child: const Icon(Icons.camera_enhance,size: 200,color: Colors.blueAccent,
+      body: const Center(
+        child: Icon(Icons.camera_enhance,size: 200,color: Colors.blueAccent,
         ),
       ),
     );
