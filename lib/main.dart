@@ -23,83 +23,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.greenAccent,
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Home To Activity1')));
-            }, child: const Text('Go Activity1'),),
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Home To Activity2')));
-            }, child: const Text('Go Activity2')),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Activity1 extends StatelessWidget {
-  final String mgs;
-   const Activity1(
-      this.mgs,
-      {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Text(mgs),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Activity1 To Activity2')));
-            }, child: const Text('Go Activity2')),
-            ElevatedButton(onPressed: (){
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
-            }, child: const Text('Back To Home'))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Activity2 extends StatelessWidget {
-  final String mgs;
-   const Activity2(
-      this.mgs,
-      {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title:  Text(mgs),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            ElevatedButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Activity2 To Activity1')));
-            }, child: const Text('Go Activity1')),
-            ElevatedButton(onPressed: (){
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-              );
-            }, child: const Text('Back To Home'))
-          ],
+      body: Center(
+        child: Card(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)),
+          shadowColor: Colors.cyanAccent,
+          color: Colors.cyan,
+          elevation: 30,
+          child: const SizedBox(
+            height: 200,
+            width: 200,
+            child: Center(
+              child: Text('This is Card'),
+            ),
+          ),
         ),
       ),
     );
