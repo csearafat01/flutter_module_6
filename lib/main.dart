@@ -30,10 +30,10 @@ class HomeScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity1()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Home To Activity1')));
           }, child: const Text('Go Activity1')),
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity2()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Home To Activity2')));
           }, child: const Text('Go Activity2')),
         ],
       ),
@@ -42,19 +42,22 @@ class HomeScreen extends StatelessWidget {
 }
 
 class Activity1 extends StatelessWidget {
-  const Activity1({super.key});
+  final String mgs;
+   const Activity1(
+      this.mgs,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Activity1'),
+        title:  Text(mgs),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity2()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity2('This is from Activity1 To Activity2')));
           }, child: const Text('Go Activity2')),
           ElevatedButton(onPressed: (){
             Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const HomeScreen()));
@@ -66,19 +69,22 @@ class Activity1 extends StatelessWidget {
 }
 
 class Activity2 extends StatelessWidget {
-  const Activity2({super.key});
+  final String mgs;
+   const Activity2(
+      this.mgs,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Activity2'),
+        title:  Text(mgs),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           ElevatedButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>const Activity1()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=> const Activity1('This is from Activity2 To Activity1')));
           }, child: const Text('Go Activity1')),
           ElevatedButton(onPressed: (){
             Navigator.pushReplacement(
